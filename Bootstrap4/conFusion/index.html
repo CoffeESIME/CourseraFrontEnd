@@ -85,15 +85,115 @@
                 <div class="col-12 col-sm align-self-center">
                     <img src="img/logo.png" class="img-fluid">
                 </div>
+                <!-- Button trigger modal -->
+
+
+
+
+
                 <div class="col-12 col-sm align-self-center">
-                    <button type="button" id="botontool" class="btn btn-block nav-link btn-warning"
-                            data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-html="true" title="Or Call us at  <br><strong>+852 12345678</strong>"
-                            href="#reserveform">
+                    <button type="button" class="btn btn-block nav-link btn-warning" data-bs-toggle="modal" data-bs-target="#ModalTable">
                         Reserve Table
                     </button>
+                    <!-- Modal -->
+                    <div class="modal fade" id="ModalTable" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-md">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Reserve a Table</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                   
+                                    <div class="container-fluid">
+                                         <div class="row">
+                                            <div class="col-3 col-md-3">
+                                                <h5 class="blackleter">Number of Guest</h5>
+                                            </div>
+                                            <div class="col-9 col-md-9">
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                                                    <label class="form-check-label blackleter" for="inlineRadio1">1</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                                                    <label class="form-check-label blackleter" for="inlineRadio2">2</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3">
+                                                    <label class="form-check-label blackleter" for="inlineRadio3">3</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio4" value="option4">
+                                                    <label class="form-check-label blackleter" for="inlineRadio4">4</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio5" value="option5">
+                                                    <label class="form-check-label blackleter" for="inlineRadio5">5</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio6" value="option6">
+                                                    <label class="form-check-label blackleter" for="inlineRadio6">6</label>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-3 col-md-3">
+                                                <h5 class="blackleter">Section</h5>
+                                            </div>
+                                            <div class="col-9">
+
+                                                <div class="row row-cols-auto g-0">
+                                                    <div class="col">
+
+                                                        <input type="radio" class="btn-check" name="options-outlined" id="success-outlined" autocomplete="off" checked>
+                                                        <label class="btn btn-outline-success btn-sm" for="success-outlined">Non-Smoking</label>
+
+                                                        <input type="radio" class="btn-check" name="options-outlined" id="danger-outlined" autocomplete="off">
+                                                        <label class="btn btn-outline-danger btn-sm" for="danger-outlined">Smoking</label>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-3 col-md-3">
+                                                <h5 class="blackleter">Date and Time</h5>
+                                            </div>
+                                            <div class="col-9">
+                                                <div class="row">
+                                                    <div class="col-md-6 col-sm-auto">
+                                                        <input type="date" class="form-control" placeholder="Date">
+                                                    </div>
+                                                    <div class="col-md-6  col-sm-auto">
+                                                        <input type="time" class="form-control" placeholder="Time">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <div class="container">
+                                            <div class="row row-cols-auto">
+                                                <div class="col offset-3">
+                                                    <button type="button" class="btn btn-secondary">Cancel</button>
+                                                    <button type="button" class="btn btn-primary">Reserve</button>
+
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
     </header>
     <div id="carousel" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-indicators">
@@ -102,21 +202,21 @@
             <button type="button" data-bs-target="#carousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
         </div>
         <div class="carousel-inner">
-               
-                <div class="carousel-item active">
-                    <img class="d-block img-fluid"
-                         src="img/uthappizza.png" alt="Uthappizza">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h2 class="mt-0">Uthappizza <span class="badge bg-danger">HOT</span><span class="badge rounded-pill bg-secondary">$4.99</span></h2>
-                        <p class="d-none d-sm-block">
-                            A unique combination of Indian Uthappam (pancake) and
-                            Italian pizza, topped with Cerignola olives, ripe vine
-                            cherry tomatoes, Vidalia onion, Guntur chillies and
-                            Buffalo Paneer.
-                        </p>
-                    </div>
+
+            <div class="carousel-item active">
+                <img class="d-block img-fluid"
+                     src="img/uthappizza.png" alt="Uthappizza">
+                <div class="carousel-caption d-none d-md-block">
+                    <h2 class="mt-0">Uthappizza <span class="badge bg-danger">HOT</span><span class="badge rounded-pill bg-secondary">$4.99</span></h2>
+                    <p class="d-none d-sm-block">
+                        A unique combination of Indian Uthappam (pancake) and
+                        Italian pizza, topped with Cerignola olives, ripe vine
+                        cherry tomatoes, Vidalia onion, Guntur chillies and
+                        Buffalo Paneer.
+                    </p>
                 </div>
-           
+            </div>
+
             <div class="carousel-item">
                 <img class="d-block img-fluid"
                      src="img/buffet.png" alt="Buffet">
@@ -154,63 +254,7 @@
             <span class="visually-hidden">Next</span>
         </button>
     </div>
-    <div class="container-fluid">
-        <div class="row-content col-12 col-sm-8 mx-auto">
-            <div class="card" id="reserveform">
-                <div class="card-header bg-warning"><h1 class="text-light">Reserve a Table</h1></div>
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-xs-2">
-                            <h5>Number of Guest</h5>
-                        </div>
-                        <div class="col-10 col-md-6">
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
-                                <label class="form-check-label" for="inlineRadio1">1</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-                                <label class="form-check-label" for="inlineRadio2">2</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3">
-                                <label class="form-check-label" for="inlineRadio3">3</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio4" value="option4">
-                                <label class="form-check-label" for="inlineRadio4">4</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio5" value="option5">
-                                <label class="form-check-label" for="inlineRadio5">5</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio6" value="option6">
-                                <label class="form-check-label" for="inlineRadio6">6</label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-2">
-                            <h5>Date and Time</h5>
-                        </div>
-                        <div class="col-sm-3">
-                            <input type="date" class="form-control" placeholder="Date">
-                        </div>
-                        <div class="col-sm-3">
-                            <input type="time" class="form-control" placeholder="Time">
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-1 offset-2">
-                            <button type="button" class="btn btn-primary">Reserve</button>
-                        </div>
-                    </div>
 
-                </div>
-            </div>
-        </div>
-    </div>
     <footer class="footer">
         <div class="container">
             <div class="row">

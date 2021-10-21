@@ -65,4 +65,49 @@ body {
   z-index: 1;
 }
 
+.modal .modal-header {
+  background-color: #512DA8;
+}
+.modal .modal-header .modal-title {
+  color: floralwhite;
+}
+.modal .modal-header .btn-close {
+  color: #9575CD;
+}
+.modal .modal-body {
+  background-color: #9575CD;
+}
+.modal .modal-footer {
+  background-color: #9575CD;
+}
+
+.btn-outline-danger {
+  background-color: white;
+}
+
+/*
+    sass --update styles.scss:styles.css
+.blackleter {
+    color: black;
+}
+.modal-header{
+  background-color:#512DA8;
+}
+.modal-body{
+  background-color: #9575CD;
+}
+.modal-footer{
+  background-color: #9575CD;
+}
+.btn-close{
+  color: #9575CD;
+}
+.modal-title{
+  color:white;
+}
+.btn-outline-danger{
+  background-color: white;
+}
+*/
+
 /*# sourceMappingURL=styles.css.map */

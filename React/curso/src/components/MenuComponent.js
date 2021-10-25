@@ -5,6 +5,7 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Card from "react-bootstrap/Card"
 import CardGroup from "react-bootstrap/CardGroup"
+import DishDetail from "./DishDetailComponent";
 /*Now we create the class, that is a component we'll export to our app */
 class Menu extends Component {
   constructor(props) {
@@ -20,24 +21,7 @@ class Menu extends Component {
   }
   /*once the dish is selectec we render a card image if the dish selected value is null
   then send an empty div */
-  renderDish(dish){
-      if(dish!=null){
-          return (
-              <Card>
-            <Card.Img src={dish.image} alt={dish.name}/>
-            <Card.Body>
-            <Card.Title>{dish.name}</Card.Title>
-            <Card.Text>{dish.description}</Card.Text>
-          </Card.Body>
-          </Card>
-          );
-      }
-      else{
-          return (
-              <div></div>
-          );
-      }
-  }
+
   render() {
       /*here we use the props instead of the state, because now the data came from the App.js */
     const menu = this.props.dishes.map((dish) => {
@@ -66,9 +50,8 @@ class Menu extends Component {
         </Row>
         <Row>
             {/* As we see this element will render the new card
-            below the cardGroup
-            in case that a card has been selected*/}
-            {this.renderDish(this.state.selectedDish)}
+            below the cardGroup in case that a card has been selected*/}
+            <DishDetail dish={this.state.selectedDish}></DishDetail>
         </Row>
       </Container>
     );

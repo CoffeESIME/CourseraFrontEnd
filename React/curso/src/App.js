@@ -1,6 +1,6 @@
 
 import React, { Component } from "react";
-
+import './App.css';
 /*we import our components */
 
 import Main from './components/MainComponents';

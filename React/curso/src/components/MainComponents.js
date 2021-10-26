@@ -1,8 +1,6 @@
 /*We import our CSS clases from the App css file */
 /*Next we import our bootstrap components to use with react-bootstrap */
-import Navbar from "react-bootstrap/Navbar";
-import Container from "react-bootstrap/Container";
-import NavbarBrand from "react-bootstrap/NavbarBrand";
+
 import Stack from "react-bootstrap/Stack";
 
 /*we import our react components */
@@ -12,6 +10,8 @@ import React, { Component } from "react";
 
 import Menu from "./MenuComponent";
 import DishDetail from "./DishDetailComponent";
+import Header from "./HeaderComponent";
+import Footer from "./FooterComponent";
 /*Now we importe the dishes NOTE that we have the same name as in the export declaration in dishes.js*/
 import { DISHES } from "../shared/dishes";
 /*We use the App to send all what is needed to the index using the root
@@ -36,12 +36,7 @@ class Main extends Component {
   render() {
     return (
       <div className="App">
-        <Navbar bg="primary" variant="dark">
-          <Container>
-            <NavbarBrand href="/">Ristaurante con Fusion</NavbarBrand>
-          </Container>
-        </Navbar>
-
+          <Header></Header>
         <Menu
           dishes={this.state.dishes}
           onClick={(dishId) => this.onDishSelect(dishId)}
@@ -55,6 +50,7 @@ class Main extends Component {
             }
           ></DishDetail>
         </Stack>
+        <Footer></Footer>
       </div>
     );
   }

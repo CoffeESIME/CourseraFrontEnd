@@ -1,18 +1,16 @@
-import React, { Component } from "react";
+import React from "react";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Card from "react-bootstrap/Card";
 import ListGroup from "react-bootstrap/ListGroup";
 import Container from "react-bootstrap/esm/Container";
-class DishDetail extends Component {
-  render() {
+function DishDetail({dish}) {
     /* First of all we need to know if the data received is null or not */
-    if (this.props.dish != null) {
+    if (dish != null) {
       /*if not null then we create a constant, with arrow function
         that maps the content for the comments to send it later to 
         the jsx format */
-      console.log(this.props.dish.comments);
-      const comments = this.props.dish.comments.map((comment) => {
+      const comments =dish.comments.map((comment) => {
         return (
           /* here we change the className to make the row flexible to shorw two elements */
           <Row key={comment.id}>
@@ -34,12 +32,12 @@ class DishDetail extends Component {
             <Col sm={12} md={5} className="m-1">
               <Card>
                 <Card.Img
-                  src={this.props.dish.image}
-                  alt={this.props.dish.name}
+                  src={dish.image}
+                  alt={dish.name}
                 />
                 <Card.Body>
-                  <Card.Title>{this.props.dish.name}</Card.Title>
-                  <Card.Text>{this.props.dish.description}</Card.Text>
+                  <Card.Title>{dish.name}</Card.Title>
+                  <Card.Text>{dish.description}</Card.Text>
                 </Card.Body>
               </Card>
             </Col>
@@ -72,6 +70,5 @@ class DishDetail extends Component {
       return <div></div>;
     }
   }
-}
 
 export default DishDetail;

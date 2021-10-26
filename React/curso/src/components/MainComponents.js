@@ -34,7 +34,6 @@ class Main extends Component {
   /*then we will need to use the render of a class with the html tags to render
   this is working with react- bootstrap */
   render() {
-    console.log(this.state);
     return (
       <div className="App">
         <Navbar bg="primary" variant="dark">

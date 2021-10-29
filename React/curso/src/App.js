@@ -1,6 +1,7 @@
 
 import React, { Component } from "react";
 import './App.css';
+import {BrowserRouter} from 'react-router-dom';
 /*we import our components */
 
 import Main from './components/MainComponents';
@@ -17,10 +18,11 @@ class App extends Component {
     return (
 
       <div className="App">
-
+        <BrowserRouter>
        {/* Now we have a data to send to the Menu component 
  */}
       <Main></Main>
+      </BrowserRouter>
       </div>
     );
   

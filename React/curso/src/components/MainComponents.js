@@ -13,8 +13,13 @@ import DishDetail from "./DishDetailComponent";
 import Header from "./HeaderComponent";
 import Footer from "./FooterComponent";
 import Home from "./HomeComponent";
+import Contact from './ContactComponent';
+
 /*Now we importe the dishes NOTE that we have the same name as in the export declaration in dishes.js*/
 import { DISHES } from "../shared/dishes";
+import { COMMENTS } from "../shared/comments";
+import { LEADERS } from "../shared/leaders";
+import { PROMOTIONS} from "../shared/promotions";
 
 /*We use the App to send all what is needed to the index using the root
 the root is refering in the index.js file */
@@ -25,6 +30,9 @@ class Main extends Component {
     super(props);
     this.state = {
       dishes: DISHES,
+      comments:COMMENTS,
+      promotions:PROMOTIONS,
+      leaders:LEADERS,
       selectedDish: null,
     };
   }
@@ -35,7 +43,10 @@ class Main extends Component {
   render() {
     const HomePage=()=>{
       return(
-        <Home></Home>
+        <Home dish={this.state.dishes.filter((dish)=>dish.featured)[0]}
+        promotion={this.state.promotions.filter((promo)=>promo.featured)[0]}
+        leader={this.state.leaders.filter((leader)=>leader.featured)[0]}
+        ></Home>
       );
     }
     return (
@@ -44,6 +55,7 @@ class Main extends Component {
           <Switch>
             <Route path='/home' component={HomePage}></Route>
             <Route exact path ='/menu' component={()=><Menu dishes={this.state.dishes}></Menu>}></Route>
+            <Route exact path='/contactus' ><Contact></Contact> </Route>
             <Redirect to="/home"></Redirect>
           </Switch>
         <Footer></Footer>

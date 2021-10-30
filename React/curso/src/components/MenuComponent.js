@@ -5,16 +5,21 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Card from "react-bootstrap/Card";
 import CardGroup from "react-bootstrap/CardGroup";
+import {Link} from "react-router-dom";
+import Breadcrumb from 'react-bootstrap/Breadcrumb'
+import { BreadcrumbItem } from "react-bootstrap";
+
 /*Now we create the class, that is a component we'll export to our app */
- function RenderMenuItem (props){
+ function RenderMenuItem ({dish,onClick}){
      
      return(
-        <Card onClick={() =>props.onClick(props.dish.id)}>
-        <Card.Img src={props.dish.image} alt={props.dish.name} />
-
+        <Card>
+          <Link to={`/menu/${dish.id}`}>
+        <Card.Img src={dish.image} alt={dish.name} />
         <Card.ImgOverlay>
-          <Card.Title>{props.dish.name}</Card.Title>
+          <Card.Title>{dish.name}</Card.Title>
         </Card.ImgOverlay>
+        </Link>
       </Card>
    );
      }
@@ -24,13 +29,23 @@ const Menu=(props)=>{
     return (
       /* here we change the className to make the row flexible to shorw two elements */
       <Row key={dish.id} className="col-12 col-md-5 m-1 ">
-         <RenderMenuItem dish={dish} onClick={props.onClick}></RenderMenuItem>
+         <RenderMenuItem dish={dish}></RenderMenuItem>
 
       </Row>
     );
   });
   return (
     <Container>
+      <Row>
+        <Breadcrumb>
+        <BreadcrumbItem><Link to="/home">Home</Link></BreadcrumbItem>
+        <BreadcrumbItem active>Menu</BreadcrumbItem>
+        </Breadcrumb>
+        <div className="col-12">
+                        <h3>Menu</h3>
+                        <hr />
+                    </div>
+        </Row>
       <Row>
         <CardGroup>{menu}</CardGroup>
       </Row>

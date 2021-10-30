@@ -4,13 +4,13 @@ import Col from "react-bootstrap/Col";
 import Card from "react-bootstrap/Card";
 import ListGroup from "react-bootstrap/ListGroup";
 import Container from "react-bootstrap/esm/Container";
-function DishDetail({dish}) {
+function DishDetail({dish,comments}) {
     /* First of all we need to know if the data received is null or not */
-    if (dish != null) {
+    if (comments != null) {
       /*if not null then we create a constant, with arrow function
         that maps the content for the comments to send it later to 
         the jsx format */
-      const comments =dish.comments.map((comment) => {
+      const commenta =comments.map((comment) => {
         return (
           /* here we change the className to make the row flexible to shorw two elements */
           <Row key={comment.id}>
@@ -60,7 +60,7 @@ function DishDetail({dish}) {
               <h3>... And the comments</h3>
               <h4>Comments</h4>
               {/* Here we call the comments const */}
-              {comments}
+              {commenta}
             </Col>
           </Row>
         </Container>

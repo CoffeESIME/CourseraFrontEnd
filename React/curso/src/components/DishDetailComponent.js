@@ -4,27 +4,142 @@ import Col from "react-bootstrap/Col";
 import Card from "react-bootstrap/Card";
 import ListGroup from "react-bootstrap/ListGroup";
 import Container from "react-bootstrap/esm/Container";
-function DishDetail({dish,comments}) {
-    /* First of all we need to know if the data received is null or not */
-    if (comments != null) {
-      /*if not null then we create a constant, with arrow function
-        that maps the content for the comments to send it later to 
-        the jsx format */
-      const commenta =comments.map((comment) => {
-        return (
-          /* here we change the className to make the row flexible to shorw two elements */
-          <Row key={comment.id}>
-            {/* Now we use the onClick event in every card, and we call a function
-                           from this class using this, the function is above
-       */}
-            <p>{comment.comment}</p>
+import Button from "react-bootstrap/Button";
+import { Modal, Stack } from "react-bootstrap";
+import { Control, LocalForm, Errors } from "react-redux-form";
+import Form from "react-bootstrap/Form"
 
+function RenderComponent(comments){
+      const commenta =comments.comments.map((comment) => {
+        return (
+          <Row key={comment.id}>
+            <p>{comment.comment}</p>
             <p>
               --{comment.author}, {new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: '2-digit'}).format(new Date(Date.parse(comment.date)))}
             </p>
           </Row>
         );
       });
+      return commenta;
+}
+function Example() {
+  const required = (val) => val && val.length;
+const maxLength = (len) => (val) => !val || val.length <= len;
+const minLength = (len) => (val) => val && val.length >= len;
+  const [show, setShow] = React.useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+  const handleSubmit=(values)=>    alert("Current State is: " + JSON.stringify(values));
+
+  
+
+  return (
+    <>
+      <Button variant="primary" onClick={handleShow}>
+        add Comment
+      </Button>
+
+      <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>Submit comment</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+        <LocalForm                     noValidate
+        onSubmit={(values) => handleSubmit(values)}
+>
+        <Row className="form-group mb-3">
+                <Col md={12}>
+                  <Form.Label htmlFor="rating">Rating</Form.Label>
+                </Col>
+                <Col md={12}>
+                  <Control.select
+                    model=".rating"
+                    id="rating"
+                    name="rating"
+                    className="form-control"
+                    
+                  >
+                    <option value={1}>
+                      1
+                    </option>
+                    <option value={2}>
+                      2
+                    </option>
+                    <option value={3}>
+                      3
+                    </option>
+                    <option value={4}>
+                      4
+                    </option>
+                    <option value={5}>
+                      5
+                    </option>
+                    </Control.select>
+                
+                </Col>
+              </Row>
+              <Row className="form-group mb-3">
+                <Col md={12}>
+                  <Form.Label htmlFor="firstname">Your Name</Form.Label>
+                </Col>
+                <Col md={12}>
+                  <Control.text
+                    model=".name"
+                    id="name"
+                    name="name"
+                    placeholder="Your Name"
+                    className="form-control"
+                    validators={{
+                      required,
+                      minLength: minLength(3),
+                      maxLength: maxLength(15),
+                    }}
+                  />
+                  <Errors
+                    className="text-danger"
+                    model=".name"
+                    show="touched"
+                    messages={{
+                      required: "Required",
+                      minLength: "Must be greater than 2 characters",
+                      maxLength: "Must be 15 characters or less",
+                    }}
+                  />
+                </Col>
+              </Row>
+              <Stack gap={2}>
+              <Row className="form-group">
+                  <Col md={12}>
+                    <Form.Label htmlFor="message">Comment</Form.Label>
+                  </Col>
+                  <Col md={12}>
+                    <Control.textarea
+                      model=".comment"
+                      id="comment"
+                      name="comment"
+                      placeholder="Leave a comment here"
+                      className="form-control"
+                    />
+                  </Col>
+                </Row>
+                <Row >
+                  <Col>
+                    <Button type="submit" color="primary">
+                      Send Feedback
+                    </Button>
+                  </Col>
+                </Row>
+                </Stack>
+              </LocalForm>
+        </Modal.Body>
+        
+      </Modal>
+    </>
+  );
+}
+function DishDetail(props) {
+
 
       return (
         <Container>
@@ -32,12 +147,12 @@ function DishDetail({dish,comments}) {
             <Col sm={12} md={5} className="m-1">
               <Card>
                 <Card.Img
-                  src={dish.image}
-                  alt={dish.name}
+                  src={props.dish.image}
+                  alt={props.dish.name}
                 />
                 <Card.Body>
-                  <Card.Title>{dish.name}</Card.Title>
-                  <Card.Text>{dish.description}</Card.Text>
+                  <Card.Title>{props.dish.name}</Card.Title>
+                  <Card.Text>{props.dish.description}</Card.Text>
                 </Card.Body>
               </Card>
             </Col>
@@ -60,15 +175,14 @@ function DishDetail({dish,comments}) {
               <h3>... And the comments</h3>
               <h4>Comments</h4>
               {/* Here we call the comments const */}
-              {commenta}
+              <RenderComponent comments={props.comments}></RenderComponent>
+              <Example></Example>
             </Col>
           </Row>
+          
         </Container>
+        
       );
-    } else {
-      /*otherwise send a empty div */
-      return <div></div>;
-    }
-  }
-
+    } 
+  
 export default DishDetail;

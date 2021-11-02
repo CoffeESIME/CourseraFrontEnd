@@ -1,7 +1,3 @@
-/*We import our CSS clases from the App css file */
-/*Next we import our bootstrap components to use with react-bootstrap */
-
-
 /*we import our react components */
 import React, { Component } from "react";
 import { Switch,Route, Redirect, withRouter } from "react-router-dom";

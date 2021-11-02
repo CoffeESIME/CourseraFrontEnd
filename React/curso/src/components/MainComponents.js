@@ -26,9 +26,6 @@ const mapStateToProps = state => {
 }
 
 class Main extends Component {
-  constructor(props) {
-    super(props);
-  }
 
   /*To make the site works as we want we need to show a new thing below our cards
   for this we change the value by default of our selectedDish above */

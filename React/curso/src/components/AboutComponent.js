@@ -12,13 +12,6 @@ import Container from "react-bootstrap/esm/Container";
 import { Link } from 'react-router-dom';
 
 function About(props) {
-
-    const leaders = props.leaders.map((leader) => {
-        return (
-            <p>Leader {leader.name}</p>
-        );
-    });
-
     function RenderLeader(props){
         return (
      props.leaders.map((leader)=>{

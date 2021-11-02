@@ -1,7 +1,6 @@
 import React from "react";
 /*Next we import our bootstrap components to use with react-bootstrap */
 import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
 import Card from "react-bootstrap/Card";
 /*Now we create the class, that is a component we'll export to our app */
  function RenderCard ({item}){

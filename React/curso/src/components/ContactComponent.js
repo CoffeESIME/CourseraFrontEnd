@@ -6,7 +6,7 @@ import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
 import { Link } from "react-router-dom";
-import { Control, LocalForm, Errors } from "react-redux-form";
+import { Control, Form, Errors, actions } from 'react-redux-form';
 const required = (val) => val && val.length;
 const maxLength = (len) => (val) => !val || val.length <= len;
 const minLength = (len) => (val) => val && val.length >= len;
@@ -20,10 +20,13 @@ class Contact extends Component {
   }
 
   handleSubmit(values) {
-    console.log("Current State is: " + JSON.stringify(values));
-    alert("Current State is: " + JSON.stringify(values));
+    console.log('Current State is: ' + JSON.stringify(values));
+    alert('Current State is: ' + JSON.stringify(values));
+    this.props.resetFeedbackForm();
     // event.preventDefault();
-  }
+}
+
+  
   render() {
     return (
       <Container>
@@ -90,7 +93,7 @@ class Contact extends Component {
             <h3>Send us your Feedback</h3>
           </div>
           <div className="col-12 col-md-9">
-            <LocalForm
+          <Form model="feedback"
               noValidate
               onSubmit={(values) => this.handleSubmit(values)}
             >
@@ -261,7 +264,7 @@ class Contact extends Component {
                   </Col>
                 </Row>
               </Stack>
-            </LocalForm>
+            </Form>
           </div>
         </div>
       </Container>

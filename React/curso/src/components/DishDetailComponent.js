@@ -17,7 +17,7 @@ const required = (val) => val && val.length;
 const maxLength = (len) => (val) => !val || val.length <= len;
 const minLength = (len) => (val) => val && val.length >= len;
 
-function RenderComments({ comments, addComment, dishId }) {
+function RenderComments({ comments, postComment, dishId }) {
   const commenta = comments.map((comment) => {
     return (
       <Row key={comment.id}>
@@ -36,7 +36,7 @@ function RenderComments({ comments, addComment, dishId }) {
   return (
     <div>
       {commenta}
-      <CommentForm dishId={dishId} addComment={addComment} />
+      <CommentForm dishId={dishId} postComment={postComment} />
     </div>
   );
 }
@@ -64,7 +64,7 @@ class CommentForm extends React.Component {
   }
   handleSubmit(values) {
     alert("Current State is: " + JSON.stringify(values));
-    this.props.addComment(
+    this.props.postComment(
       this.props.dishId,
       values.rating,
       values.author,
@@ -209,7 +209,7 @@ else if (props.dish != null) {
           {/* Here we call the comments const */}
           <RenderComments
             comments={props.comments}
-            addComment={props.addComment}
+            postComment={props.postComment}
             dishId={props.dish.id}
           ></RenderComments>
         </Col>

@@ -8,6 +8,10 @@ import Button from "react-bootstrap/Button";
 import { Modal, Stack } from "react-bootstrap";
 import { Control, LocalForm, Errors } from "react-redux-form";
 import Form from "react-bootstrap/Form";
+import { Loading } from './LoadingComponent';
+
+
+
 const required = (val) => val && val.length;
 const maxLength = (len) => (val) => !val || val.length <= len;
 const minLength = (len) => (val) => val && val.length >= len;
@@ -159,6 +163,25 @@ class CommentForm extends React.Component {
 }
 
 function DishDetail(props) {
+  if (props.isLoading) {
+    return(
+        <div className="container">
+            <div className="row">            
+                <Loading />
+            </div>
+        </div>
+    );
+}
+else if (props.errMess) {
+    return(
+        <div className="container">
+            <div className="row">            
+                <h4>{props.errMess}</h4>
+            </div>
+        </div>
+    );
+}
+else if (props.dish != null) {
   return (
     <Container>
       <Row className="m-right-6">
@@ -192,6 +215,12 @@ function DishDetail(props) {
       </Row>
     </Container>
   );
+  }
+  else {
+    return (
+<div></div>
+    );
+  }
 }
 
 export default DishDetail;

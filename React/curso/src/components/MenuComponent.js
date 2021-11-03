@@ -9,13 +9,14 @@ import { Link } from "react-router-dom";
 import Breadcrumb from "react-bootstrap/Breadcrumb";
 import { BreadcrumbItem } from "react-bootstrap";
 import { Loading } from "./LoadingComponent";
+import { baseUrl } from '../shared/baseUrl';
 
 /*Now we create the class, that is a component we'll export to our app */
-function RenderMenuItem({ dish, onClick }) {
+function RenderMenuItem({ dish}) {
   return (
     <Card>
       <Link to={`/menu/${dish.id}`}>
-        <Card.Img src={dish.image} alt={dish.name} />
+        <Card.Img src={baseUrl + dish.image} alt={dish.name} />
         <Card.ImgOverlay>
           <Card.Title>{dish.name}</Card.Title>
         </Card.ImgOverlay>

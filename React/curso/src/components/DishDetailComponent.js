@@ -9,6 +9,7 @@ import { Modal, Stack } from "react-bootstrap";
 import { Control, LocalForm, Errors } from "react-redux-form";
 import Form from "react-bootstrap/Form";
 import { Loading } from './LoadingComponent';
+import { baseUrl } from '../shared/baseUrl';
 
 
 
@@ -187,7 +188,7 @@ else if (props.dish != null) {
       <Row className="m-right-6">
         <Col sm={12} md={5} className="m-1">
           <Card>
-            <Card.Img src={props.dish.image} alt={props.dish.name} />
+            <Card.Img src={baseUrl + props.dish.image} alt={props.dish.name}  />
             <Card.Body>
               <Card.Title>{props.dish.name}</Card.Title>
               <Card.Text>{props.dish.description}</Card.Text>
